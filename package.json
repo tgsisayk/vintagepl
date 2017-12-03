@@ -1,0 +1,22 @@
+{
+  "name": "vintagepl",
+  "version": "1.0.0",
+  "description": "Augustana University Men's Soccer Club",
+  "main": "index.js",
+  "scripts": {
+    "test": "testPl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tgsisayk/vintagepl.git"
+  },
+  "author": "Nahom Welday",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tgsisayk/vintagepl/issues"
+  },
+  "homepage": "https://github.com/tgsisayk/vintagepl#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
