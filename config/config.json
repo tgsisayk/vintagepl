@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "accountUser",
-    "password": "password",
-    "database": "soocer",
+    "username": "vintage",
+    "password": "vintage",
+    "database": "vintage",
     "host": "127.0.0.1",
-    "dialect": "mongodb"
+    "dialect": "postgresql"
   },
   "test": {
     "username": "root",
