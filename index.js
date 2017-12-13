@@ -1,5 +1,4 @@
-const express = require('express')
-var app = express()
+var  express = require('express')
 var path = require('path');
 var passport = require('passport')
 const logger = require('morgan');
@@ -7,13 +6,12 @@ const logger = require('morgan');
 var bodyParser   = require('body-parser');
 var cookieParser = require('cookie-parser')
 var session      = require('express-session');
+
+var app = express()
+var server = require('http').createServer(app);
 var router = express.Router();
 var routerSecure = express.Router();
-
-app.get('/', (req, res) => res.sendFile(path.resolve('index.html')))
-app.get('/team', (req, res) => res.sendFile(path.resolve('team.html')))
-app.get('/schedule', (req, res) => res.sendFile(path.resolve('schedule.html')))
-app.get('/sitemap', (req, res) => res.sendFile(path.resolve('sitemap.html')))
+app.use(express.static(path.resolve('static')))
 
 
 app.use(cookieParser("secret"))
@@ -36,11 +34,16 @@ app.use(function logErrors(err, req, res, next) {
     }
 );
 
-require('./routes')(router, routerSecure);
-require('./config/passport')(passport);
+
+
+server.listen(8080,null, null, () => console.log('VintagePL app listening on port 8080!'))
+
+app.get('/', (req, res) => res.sendFile(path.resolve('index.html')))
+app.get('/team', (req, res) => res.sendFile(path.resolve('team.html')))
+app.get('/schedule', (req, res) => res.sendFile(path.resolve('schedule.html')))
+app.get('/sitemap', (req, res) => res.sendFile(path.resolve('sitemap.html')))
 
 app.use('/', router)
 app.use('/', routerSecure)
-app.use(express.static(path.resolve('static')))
-
-app.listen(8080, () => console.log('VintagePL app listening on port 8080!'))
+require('./routes')(router, routerSecure);
+require('./config/passport')(passport);

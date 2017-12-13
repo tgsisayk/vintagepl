@@ -35,12 +35,9 @@
 	  <div id="sidebar_container">
         <div class="sidebar">
           <div class="sidebar_top"></div>
+          <!-- insert your sidebar items here -->
           <div class="sidebar_item">
-            <!-- insert your sidebar items here -->
-            <h3>Latest News</h3>
-            <h4>Augustana vs USF </h4>
-            <h5>November 21th, 2017</h5>
-            <p>This Sunday here in Sioux Falls. The game starts at 3:00pm at tomar park.<br /><a href="#">Read more</a></p>
+
           </div>
           <div class="sidebar_base"></div>
         </div>
@@ -83,5 +80,22 @@
       <p><a href="index.html">Home</a> | <a href="https://www.facebook.com/profile.php?id=301945366519326&ref=br_rs">Facebook</a> | <a href="sitemap">Sitemap</a> | <a href="another_page.html">Support</a> | <a href="contact.html">Contact Us</a></p>
     </div>
   </div>
+  <!-- jQuery library required by bootsrap js -->
+  <script src="script/jquery-3.2.1.js"></script>
+  <script>
+      $.get("api/v1/schedule/get", (data)=>{
+          data.forEach(function(element) {
+            var mydate=new Date(element.createdAt) 
+            $(".sidebar_item").append(    "<h4>"+element.title+ "</h4>"
+                                          +"<h5>"+mydate.getUTCDay()+"/"+mydate.getUTCMonth()+"/"+mydate.getUTCFullYear()+"</h5>"
+                                          +"<p>"+element.desc+"<br />"
+                                          +"<a href='#'>Read more</a></p>")
+          }, this);
+      })
+  </script><h3>Latest News</h3>
+            <h4>Augustana vs USF </h4>
+            <h5>November 21th, 2017</h5>
+            <p>This Sunday here in Sioux Falls. The game starts at 3:00pm at tomar park.<br />
+            <a href="#">Read more</a></p>
 </body>
 </html>

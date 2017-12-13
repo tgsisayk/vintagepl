@@ -1,4 +1,5 @@
 const securityController = require('../controllers').securityController
+const scheduleController = require('../controllers').scheduleController
 var passport = require('passport')
 , LocalStrategy = require('passport-local').Strategy;
 
@@ -40,6 +41,7 @@ module.exports = (app, routerSecure) => {
   }
 
   require('.'+API_URL+'/'+'securityRouter')(routerSecure, app);
+  require('.'+API_URL+'/'+'scheduleRouter')(routerSecure, app);
 };
 
 
