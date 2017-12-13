@@ -1,5 +1,5 @@
 const express = require('express')
-const app = express()
+var app = express()
 var path = require('path');
 var passport = require('passport')
 const logger = require('morgan');
@@ -41,5 +41,6 @@ require('./config/passport')(passport);
 
 app.use('/', router)
 app.use('/', routerSecure)
+app.use(express.static(path.resolve('static')))
 
 app.listen(8080, () => console.log('VintagePL app listening on port 8080!'))

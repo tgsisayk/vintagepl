@@ -29,7 +29,7 @@ module.exports = function(app){
         if(username==null){
             console.log('NO NAME')
         }
-      models.SecurityUserModel.findOne({ where: {$or:[{email: username},{username:username}]} }).then(function(user){
+      models.SecurityUser.findOne({ where: {$or:[{email: username},{username:username}]} }).then(function(user){
         if (!user) {
           console.log("USER NOT FOUND");
           return done(null, false);
