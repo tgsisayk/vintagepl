@@ -27,14 +27,7 @@ module.exports = (routerSecure, app) => {
       }
 
   })
-
-  function signInUser(req, res, error, user, info){
-    if(error) { return res.status(500).json(error); }
-    if(!user) { return res.status(401).json("Wrong Credentials"); }
-    var userId = user.id;
-    sessionHelper.setCurrentUserId(req, res, userId);
-    res.status(200).json(user);
-  }
+  
 
 };
 

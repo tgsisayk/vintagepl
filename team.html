@@ -2,11 +2,98 @@
 <html>
 
 <head>
-  <title>textured_orbs</title>
+  <title>SoccerNB</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
   <link href="style/custom.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+	box-sizing: border-box;
+}
+
+*:focus {
+	outline: none;
+}
+div.topLogo{
+	float: right;
+  	
+}
+body {
+font-family: Arial;
+}
+.login {
+margin: 100px auto;
+width: 300px;
+
+}
+.login-screen {
+background-color: #f2f2f2;
+border-radius: 25px;
+height:270px;
+}
+
+.app-title {
+text-align: center;
+color: #777;
+}
+
+.login-form {
+text-align: center;
+}
+.control-group {
+margin-bottom: 10px;
+}
+
+input {
+text-align: center;
+background-color: #ECF0F1;
+border: 2px solid transparent;
+border-radius: 3px;
+font-size: 16px;
+font-weight: 200;
+padding: 10px 0;
+width: 250px;
+transition: border .5s;
+}
+
+input:focus {
+border: 2px solid #3498DB;
+box-shadow: none;
+}
+
+.btn {
+  border: 2px solid transparent;
+  background: #3498DB;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 10px 0;
+  text-decoration: none;
+  text-shadow: none;
+  border-radius: 3px;
+  box-shadow: none;
+  transition: 0.25s;
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+}
+
+.btn:hover {
+  background-color: #2980B9;
+}
+
+.login-link {
+  font-size: 12px;
+  color: #444;
+  display: block;
+  margin-top: 25px;
+}
+</style>
+<script>
+  $( "#loginButton" ).bind( "click", function() {
+    
+});
+</script>
 </head>
 
 <body>
@@ -35,34 +122,30 @@
 			<div class="app-title">
 				<h1>Login</h1>
 			</div>
+      <form method= "post" action="/api/v1/security/login">
+  			<div class="login-form" >
+  				<div class="control-group">
+  				<input type="text" name="username" class="login-field" value="" placeholder="username" id="login-name">
+  				<label class="login-field-icon fui-user" for="login-name"></label>
+  				</div>
 
-			<div class="login-form">
-				<div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="username" id="login-name">
-				<label class="login-field-icon fui-user" for="login-name"></label>
-				</div>
+  				<div class="control-group">
+  				<input type="password" name="password" class="login-field" value="" placeholder="password" id="login-pass">
+  				<label class="login-field-icon fui-lock" for="login-pass"></label>
+  				</div>
 
-				<div class="control-group">
-				<input type="password" class="login-field" value="" placeholder="password" id="login-pass">
-				<label class="login-field-icon fui-lock" for="login-pass"></label>
-				</div>
-
-				<a class="btn btn-primary btn-large btn-block" href="#" id="loginButton">login</a>
-				<a class="login-link" href="#">Forgot your password?</a>
-			</div>
+          <input class="btn btn-primary btn-large btn-block" type="submit" value="Login" > </input>
+  				<a class="login-link" href="#">Forgot your password?</a>
+  			</div>
+      </form>
 		</div>
 	</div>
     <div id="content_footer"></div>
     <div id="footer">
-        <p><a href="index.html">Home</a> | <a href="https://www.facebook.com/profile.php?id=301945366519326&ref=br_rs">Facebook</a> | <a href="sitemap">Sitemap</a> | <a href="another_page.html">Support</a> | <a href="contact.html">Contact Us</a></p>
+        <p><a href="index.html">Home</a> | <a href="https://www.facebook.com/profile.php?id=301945366519326&ref=br_rs">Facebook</a></p>
     </div>
   </div>
   <!-- jQuery library required by bootsrap js -->
   <script src="script/jquery-3.2.1.js"></script>
 </body>
-<script>
-  $( "#loginButton" ).bind( "click", function() {
-    
-});
-</script>
 </html>

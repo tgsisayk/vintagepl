@@ -36,12 +36,14 @@ app.use(function logErrors(err, req, res, next) {
 
 
 
-server.listen(8080,null, null, () => console.log('VintagePL app listening on port 8080!'))
+server.listen(3011,null, null, () => console.log('VintagePL app listening on port 3011!'))
 
 app.get('/', (req, res) => res.sendFile(path.resolve('index.html')))
 app.get('/team', (req, res) => res.sendFile(path.resolve('team.html')))
 app.get('/schedule', (req, res) => res.sendFile(path.resolve('schedule.html')))
 app.get('/sitemap', (req, res) => res.sendFile(path.resolve('sitemap.html')))
+app.get('/login', (req, res) => res.sendFile(path.resolve('login.html')))
+app.get('/admin',(req, res) => res.sendFile(path.resolve('admin.html')))
 
 app.use('/', router)
 app.use('/', routerSecure)

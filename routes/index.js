@@ -8,10 +8,10 @@ var express = require('express');
 var router = express.Router();
 var sessionHelper = require('../config/session');
 var counterValue = 0;
-var passport = require("passport");
 var Sequelize = require('sequelize');
 var model = require('../models')
 var path = require('path');
+
 
 
 var API_URL='/api/v1'
@@ -19,11 +19,17 @@ var API_URL='/api/v1'
 
 module.exports = (app, routerSecure) => { 
   app.post(API_URL + '/security/signup', securityController.create_user);
+
+
+  
   app.post(API_URL + '/security/login', function(req, res, next) {
     passport.authenticate('local', function(error, user, info) {
       signInUser(req, res, error, user, info);
     })(req, res, next);
   });
+  
+
+
   app.get(API_URL + '/security/current/user', function(req, res){
     var userId = sessionHelper.currentUserId(req, res);
     if(userId){
@@ -32,12 +38,19 @@ module.exports = (app, routerSecure) => {
       res.status(403).json({"userId": userId});
     }
   });
-  function signInUser(req, res, error, user, info){
+
+  function signInUser(req, res, error, user, info,next){
     if(error) { return res.status(500).json(error); }
     if(!user) { return res.status(401).json("Wrong Credentials"); }
     var userId = user.id;
     sessionHelper.setCurrentUserId(req, res, userId);
-    res.status(200).json(user);
+    if(userId==6)
+       res.sendFile(path.resolve('admin-old.html'))
+    else
+       res.sendFile(path.resolve('login.html'))
+           //<TO DO><Replace berekets resource>
+    //res.status(200).json(user);
+    //res.send('login')
   }
 
   require('.'+API_URL+'/'+'securityRouter')(routerSecure, app);

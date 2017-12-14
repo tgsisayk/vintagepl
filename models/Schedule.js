@@ -1,18 +1,29 @@
 'use strict';
 
-var bcrypt = require('bcrypt-nodejs');
 
 module.exports = (sequelize, DataTypes) => {
   var Schedule = sequelize.define('Schedule', {
-    desc: {
+   
+    Day: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    title: {
+    Time: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    
+    HomeTeam: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    AwayTeam: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    Score: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },  
   },
   {
   name: {
@@ -20,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     plural: 'Schedules',
   }
 });
+
   Schedule.associate = function(models) {}
 
   return Schedule;

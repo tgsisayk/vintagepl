@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>textured_orbs</title>
+  <title>SoccerNB</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
@@ -31,45 +31,73 @@
     </div>
     <div id="content_header"></div>
     <div id="site_content">
-	  <div id="sidebar_container">
-        <div class="sidebar">
-          <div class="sidebar_top"></div>
-          <div class="sidebar_item">
-            <!-- insert your sidebar items here -->
-            <h3>Latest News</h3>
-            <h4>New Website Launched</h4>
-            <h5>June 1st, 2014</h5>
-            <p>2014 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>
-          </div>
-          <div class="sidebar_base"></div>
-        </div>
-        <div class="sidebar">
-          <div class="sidebar_top"></div>
-          <div class="sidebar_item">
-            <h3>Useful Links</h3>
-            <ul>
-              <li><a href="augie.edu">Augustana University</a></li>
-              <li><a href="#">link 2</a></li>
-            </ul>
-          </div>
-          <div class="sidebar_base"></div>
-        </div>
-      </div>
-      <div id="content">
-        <!-- insert the page content here -->
-        <h1>Welcome to the textured_orbs template</h1>
-        <p>This template is a fully functional 5 page website, with an <a href="examples.html">examples</a> page that gives examples of all the styles available with this design.</p>
-        <h2>Browser Compatibility</h2>
-        <p>This template has been tested in the following browsers:</p>
-        <ul>
-          <li>Internet Explorer 9</li>
-        </ul>
+	  <div id="site_content">
+      <table style="width:100%">
+      <script>$.get("api/v1/schedule/get", (data)=>{
+          data.forEach(function(element) {
+            var Day+=[{element.Day}]
+            var Time+=[{element.Time}]
+            var HomeTeam+=[{element.HomeTeam}]
+            var AwayTeam+=[{element.AwayTeam}]
+            var Score+=[{element.Score}]
+          }, this);
+        })
+       var x=arr[0];
+        </script>
+    
+            <h4>Schedule and results</h4>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Home Team</th>
+              <th>Away Team</th>
+              <th>Score</th>
+            </tr>
+            <tr>
+              <td>x.append("<h4>"+element.HomeTeam+"</h4>"</td>
+              <td>eTime[0]</td>
+              <td><h4>element.HomeTeam</h4></td>
+              <td>element.AwayTeam</td>
+              <td>element.Score</td>
+            </tr>
+            <tr>
+              <td>12/02/17</td>
+              <td>2:00pm</td>
+              <td>SDSU VS Penn State</td>
+              <td>2-3</td>
+            </tr>
+            <tr>
+              <td>12/03/17</td>
+              <td>8:00am</td>
+              <td>USF VS NDSU</td>
+              <td>0-0</td>
+            </tr>
+            <tr>
+              <td>12/04/17</td>
+              <td>11:00am</td>
+              <td>Augustana VS Penn State</td>
+              <td>-----</td>
+            </tr>
+            <tr>
+              <td>12/05/17</td>
+              <td>3:00pm</td>
+              <td>USD VS USF</td>
+              <td>-----</td>
+            </tr>
+            <tr>
+              <td>12/06/17</td>
+              <td>9:00am</td>
+              <td>NDSU VS USD</td>
+              <td>-----</td>
+            </tr>
+          </table>
+    </div>
       </div>
     </div>
     <div id="content_footer"></div>
     <div id="footer">
-      <p><a href="index.html">Home</a> | <a href="examples.html">Examples</a> | <a href="page.html">A Page</a> | <a href="another_page.html">Another Page</a> | <a href="contact.html">Contact Us</a></p>
-    </div>
+      <p><a href="index.html">Home</a> | <a href="https://www.facebook.com/profile.php?id=301945366519326&ref=br_rs">Facebook</a></p>
+   </div>
   </div>
   <!-- jQuery library required by bootsrap js -->
   <script src="script/jquery-3.2.1.js"></script>

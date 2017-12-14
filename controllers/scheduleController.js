@@ -6,10 +6,16 @@ module.exports = {
   create_schedule(req, res) {
     return schedule
       .create({
-        desc: req.body.desc,
-        title: req.body.title,
+        Day: req.body.date,
+        HomeTeam: req.body.hometeam,
+        AwayTeam: req.body.awayteam,
+        HomeScore: req.body.homescore,
+        AwayScore: req.body.awayscore,
+        Time: req.body.time
+        
       })
       .then(schedule => res.status(200).send(schedule))
+      console.log(">>> here")
       .catch(error => res.status(400).send(error));
   },
 
